@@ -1,4 +1,8 @@
+{% if unattended_upgrade_enabled %}
 APT::Periodic::Unattended-Upgrade "1";
+{% else %}
+APT::Periodic::Unattended-Upgrade "0";
+{% endif %}
 
 {% if unattended_update_package_list is defined %}
 APT::Periodic::Update-Package-Lists "{{unattended_update_package_list}}";
